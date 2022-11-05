@@ -1,0 +1,7 @@
+ALTER TABLE users ADD created_at TIMESTAMP;
+
+ALTER TABLE users ADD modified_at TIMESTAMP;
+
+ALTER TABLE users ADD COLUMN created_by VARCHAR(255);
+
+ALTER TABLE users ADD COLUMN modified_by VARCHAR(255);

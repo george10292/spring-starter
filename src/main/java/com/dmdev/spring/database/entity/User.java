@@ -7,6 +7,10 @@ import java.time.LocalDate;
 import java.util.ArrayList;
 import java.util.List;
 
+@NamedEntityGraph(
+        name = "User.company",
+        attributeNodes = @NamedAttributeNode( "company" )
+)
 @Data
 @NoArgsConstructor
 @AllArgsConstructor
@@ -15,7 +19,7 @@ import java.util.List;
 @ToString(exclude = "userChats")
 @EqualsAndHashCode (of = "username")
 @Table(name = "users")
-public class User implements BaseEntity<Long> {
+public class User extends AuditingEntity<Long> {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;

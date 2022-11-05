@@ -3,6 +3,8 @@ package com.dmdev.spring.integration.database.repository;
 import com.dmdev.spring.database.entity.Role;
 import com.dmdev.spring.database.entity.User;
 import com.dmdev.spring.database.repository.UserRepository;
+import com.dmdev.spring.dto.PersonalInfo;
+import com.dmdev.spring.dto.UserFilter;
 import com.dmdev.spring.integration.annotation.IT;
 import lombok.EqualsAndHashCode;
 import lombok.RequiredArgsConstructor;
@@ -11,6 +13,7 @@ import org.assertj.core.api.Assertions;
 import org.junit.jupiter.api.Test;
 import org.springframework.data.domain.PageRequest;
 import org.springframework.data.domain.Sort;
+import org.springframework.data.jpa.repository.EntityGraph;
 
 import java.time.LocalDate;
 import java.util.List;
@@ -25,13 +28,39 @@ class UserRepositoryTest {
     private final UserRepository userRepository;
 
     @Test
+    void checkAuditing() {
+        var ivan = userRepository.findById( 1L ).get();
+        ivan.setBirthDate( ivan.getBirthDate().plusYears( 1L ) );
+        userRepository.flush();
+        System.out.println();
+    }
+
+    @Test
+    void checkCustomImplementation() {
+        UserFilter filter = new UserFilter(
+                null,
+                "%ov%",
+                LocalDate.now()
+        );
+        var users = userRepository.findAllByFilter( filter );
+        System.out.println();
+    }
+
+    @Test
+    void checkProjections() {
+        var users = userRepository.findAllByCompanyId( 1 );
+        assertThat(users).hasSize( 2 );
+        System.out.println();
+    }
+
+    @Test
     void checkPageable() {
         var pageable = PageRequest.of(1,2,Sort.by( "id" ));
         var slice = userRepository.findAllBy( pageable );
-        slice.forEach( user -> System.out.println(user.getId()) );
+        slice.forEach( user -> System.out.println(user.getCompany().getName()) );
         while(slice.hasNext()) {
             slice = userRepository.findAllBy( slice.nextPageable() );
-            slice.forEach( user -> System.out.println(user.getId()) );
+            slice.forEach( user -> System.out.println(user.getCompany().getName()) );
         }
     }
 
@@ -65,6 +94,7 @@ class UserRepositoryTest {
         var theSameIvan = userRepository.getById( 1L );
         assertSame(Role.USER, theSameIvan.getRole());
     }
+
 
     @Test
     void checkQueries() {

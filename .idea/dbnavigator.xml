@@ -38,6 +38,7 @@
   <component name="DBNavigator.Project.DatabaseSessionManager">
     <connection id="1763c2ee-8c79-48c6-b412-9273734fbb3b">
       <session name="Session 1" id="ed247143-640a-47f4-8b4c-2772ebbf4e80" />
+      <session name="Session 2" id="86064361-b50e-4964-adc2-77cb15bd8864" />
     </connection>
   </component>
   <component name="DBNavigator.Project.EditorStateManager">
@@ -48,6 +49,7 @@
   </component>
   <component name="DBNavigator.Project.FileConnectionMappingManager">
     <mapping file-url="file://$PROJECT_DIR$/src/main/resources/sql/init.sql" connection-id="1763c2ee-8c79-48c6-b412-9273734fbb3b" session-id="MAIN" current-schema="public" />
+    <mapping file-url="file://$PROJECT_DIR$/src/main/resources/sql/audit.sql" connection-id="1763c2ee-8c79-48c6-b412-9273734fbb3b" session-id="MAIN" current-schema="public" />
     <mapping file-url="file://$PROJECT_DIR$/src/main/resources/sql/data.sql" connection-id="1763c2ee-8c79-48c6-b412-9273734fbb3b" session-id="MAIN" current-schema="public" />
   </component>
   <component name="DBNavigator.Project.MethodExecutionManager">
@@ -69,7 +71,9 @@
     <diagnostics-history />
   </component>
   <component name="DBNavigator.Project.ScriptExecutionManager" clear-outputs="true">
-    <recently-used-interfaces />
+    <recently-used-interfaces>
+      <mapping database-type="POSTGRES" interface-id="DEFAULT" />
+    </recently-used-interfaces>
   </component>
   <component name="DBNavigator.Project.Settings">
     <connections>
@@ -92,7 +96,7 @@
           <deprecated-pwd value="cGFzcw==" />
         </database>
         <properties>
-          <auto-commit value="false" />
+          <auto-commit value="true" />
         </properties>
         <ssh-settings>
           <active value="false" />
@@ -532,7 +536,7 @@
       </extensions>
       <general>
         <lookup-ddl-files value="true" />
-        <create-ddl-files value="false" />
+        <create-ddl-files value="true" />
         <synchronize-ddl-files value="true" />
         <use-qualified-names value="false" />
         <make-scripts-rerunnable value="true" />
