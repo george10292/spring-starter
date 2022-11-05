@@ -5,6 +5,7 @@ import com.dmdev.spring.database.entity.User;
 import com.dmdev.spring.database.repository.UserRepository;
 import com.dmdev.spring.dto.PersonalInfo;
 import com.dmdev.spring.dto.UserFilter;
+import com.dmdev.spring.integration.IntegrationTestBase;
 import com.dmdev.spring.integration.annotation.IT;
 import lombok.EqualsAndHashCode;
 import lombok.RequiredArgsConstructor;
@@ -15,6 +16,7 @@ import org.springframework.data.domain.PageRequest;
 import org.springframework.data.domain.Sort;
 import org.springframework.data.jpa.repository.EntityGraph;
 import org.springframework.test.annotation.Commit;
+import org.springframework.test.context.jdbc.Sql;
 
 import java.time.LocalDate;
 import java.util.List;
@@ -22,14 +24,25 @@ import java.util.List;
 import static org.assertj.core.api.Assertions.assertThat;
 import static org.junit.jupiter.api.Assertions.*;
 
-@IT
 @RequiredArgsConstructor
-class UserRepositoryTest {
+class UserRepositoryTest extends IntegrationTestBase {
 
     private final UserRepository userRepository;
 
     @Test
-    @Commit
+    void checkBatch() {
+        var users = userRepository.findAll();
+        userRepository.updateCompanyAndRole( users );
+        System.out.println();
+    }
+
+    @Test
+    void checkJdbcTemplate() {
+        var users = userRepository.findAllByCompanyIdAndRole( 1, Role.USER );
+         assertThat( users ).hasSize( 1 );
+    }
+
+    @Test
     void checkAuditing() {
         var ivan = userRepository.findById( 1L ).get();
         ivan.setBirthDate( ivan.getBirthDate().plusYears( 1L ) );
@@ -45,7 +58,7 @@ class UserRepositoryTest {
                 LocalDate.now()
         );
         var users = userRepository.findAllByFilter( filter );
-        assertThat(users).hasSize( 2 );
+        assertThat(users).hasSize( 4 );
     }
 
     @Test

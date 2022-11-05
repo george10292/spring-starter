@@ -25,6 +25,7 @@ logging:
   level:
     root: INFO
     com.dmdev.spring.database.pool: INFO
+    org.springframework.jdbc.core: TRACE
   file:
     name: dmdev.log
     path : /
@@ -39,6 +40,8 @@ spring:
   jpa:
     properties:
       hibernate:
+        batch_size: 50
+        fetch_size: 50
         show_sql: true
         format_sql: true
         hbm2ddl:

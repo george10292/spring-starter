@@ -1,3 +1,6 @@
+--liquibase formatted sql
+
+--changeset dmatveyenka:1
 ALTER TABLE users ADD created_at TIMESTAMP;
 
 ALTER TABLE users ADD modified_at TIMESTAMP;
