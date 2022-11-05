@@ -14,6 +14,7 @@ import org.junit.jupiter.api.Test;
 import org.springframework.data.domain.PageRequest;
 import org.springframework.data.domain.Sort;
 import org.springframework.data.jpa.repository.EntityGraph;
+import org.springframework.test.annotation.Commit;
 
 import java.time.LocalDate;
 import java.util.List;
@@ -28,6 +29,7 @@ class UserRepositoryTest {
     private final UserRepository userRepository;
 
     @Test
+    @Commit
     void checkAuditing() {
         var ivan = userRepository.findById( 1L ).get();
         ivan.setBirthDate( ivan.getBirthDate().plusYears( 1L ) );
@@ -39,11 +41,11 @@ class UserRepositoryTest {
     void checkCustomImplementation() {
         UserFilter filter = new UserFilter(
                 null,
-                "%ov%",
+                "ov",
                 LocalDate.now()
         );
         var users = userRepository.findAllByFilter( filter );
-        System.out.println();
+        assertThat(users).hasSize( 2 );
     }
 
     @Test
