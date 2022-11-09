@@ -16,6 +16,4 @@ import java.lang.annotation.Target;
 @Transactional
 @SpringBootTest(classes = TestApplicationRunner.class)
 public @interface IT {
-
-
 }

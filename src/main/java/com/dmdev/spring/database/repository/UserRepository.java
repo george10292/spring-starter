@@ -13,6 +13,7 @@ import org.springframework.data.jpa.repository.Query;
 import org.springframework.data.querydsl.QuerydslPredicateExecutor;
 import org.springframework.data.querydsl.binding.QuerydslPredicate;
 import org.springframework.data.repository.history.RevisionRepository;
+import org.springframework.security.core.userdetails.UserDetails;
 import org.springframework.stereotype.Repository;
 
 import java.time.LocalDate;
@@ -32,7 +33,7 @@ public interface UserRepository extends
     List<User> findAllBy(String firstname, String lastname);
 
     @Query(value = "select * from users u " +
-            "where u.username like %:username% ",
+            "where u.username like :username ",
             nativeQuery = true
     )
     List<User> findAllByUsername(String username);
@@ -59,4 +60,6 @@ public interface UserRepository extends
             "WHERE company_id = :companyId",
             nativeQuery = true)
     List<PersonalInfo2> findAllByCompanyId(Integer companyId);
+
+    Optional<User> findByUsername(String username);
 }
