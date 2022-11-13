@@ -20,6 +20,9 @@ db:
       timeout: 3
 spring.profiles.active: qa
 
+app.common.logging:
+  enabled: true
+  level: INFO
 
 logging:
   level:
@@ -53,3 +56,21 @@ spring:
     view:
       prefix: /WEB-INF/jsp/
       suffix: .jsp
+  security:
+    oauth2:
+      client:
+        registration:
+          google:
+            clientId: 986627964285-96i14qihqnkqiuod0q3usi3u7co6ni9k.apps.googleusercontent.com
+            clientSecret: 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
+            redirectUri: http://localhost:8080/login/oauth2/code/google
+            scope: openid,email,profile
+  messages:
+    basename: messages
+springdoc:
+  swagger-ui:
+    oauth:
+      client-id: 986627964285-96i14qihqnkqiuod0q3usi3u7co6ni9k.apps.googleusercontent.com
+      client-secret: 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
+      scope: openid,email,profile
+    oauth2-redirect-url: http://localhost:8080/swagger-ui/oauth2-redirect.html
