@@ -1974,3 +1974,43 @@ org.thymeleaf.exceptions.TemplateInputException: Error resolving template [freag
 2022-11-13 22:55:41.142  INFO 2848 --- [SpringApplicationShutdownHook] j.LocalContainerEntityManagerFactoryBean : Closing JPA EntityManagerFactory for persistence unit 'default'
 2022-11-13 22:55:41.197  INFO 2848 --- [SpringApplicationShutdownHook] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Shutdown initiated...
 2022-11-13 22:55:41.229  INFO 2848 --- [SpringApplicationShutdownHook] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Shutdown completed.
+2022-11-13 22:56:15.310  INFO 17680 --- [main] com.dmdev.spring.ApplicationRunner       : Starting ApplicationRunner using Java 17.0.5 on WIN-9FP64LM0111 with PID 17680 (F:\JavaProjects\spring-starter\build\classes\java\main started by User in F:\JavaProjects\spring-starter)
+2022-11-13 22:56:15.313  INFO 17680 --- [main] com.dmdev.spring.ApplicationRunner       : The following 1 profile is active: "qa"
+2022-11-13 22:56:16.392  INFO 17680 --- [main] .s.d.r.c.RepositoryConfigurationDelegate : Bootstrapping Spring Data JPA repositories in DEFAULT mode.
+2022-11-13 22:56:16.456  INFO 17680 --- [main] .s.d.r.c.RepositoryConfigurationDelegate : Finished Spring Data repository scanning in 58 ms. Found 2 JPA repository interfaces.
+2022-11-13 22:56:17.374  INFO 17680 --- [main] o.s.b.w.embedded.tomcat.TomcatWebServer  : Tomcat initialized with port(s): 8080 (http)
+2022-11-13 22:56:17.382  INFO 17680 --- [main] o.apache.catalina.core.StandardService   : Starting service [Tomcat]
+2022-11-13 22:56:17.382  INFO 17680 --- [main] org.apache.catalina.core.StandardEngine  : Starting Servlet engine: [Apache Tomcat/9.0.68]
+2022-11-13 22:56:17.646  INFO 17680 --- [main] org.apache.jasper.servlet.TldScanner     : At least one JAR was scanned for TLDs yet contained no TLDs. Enable debug logging for this logger for a complete list of JARs that were scanned but no TLDs were found in them. Skipping unneeded JARs during scanning can improve startup time and JSP compilation time.
+2022-11-13 22:56:17.654  INFO 17680 --- [main] o.a.c.c.C.[Tomcat].[localhost].[/]       : Initializing Spring embedded WebApplicationContext
+2022-11-13 22:56:17.654  INFO 17680 --- [main] w.s.c.ServletWebServerApplicationContext : Root WebApplicationContext: initialization completed in 2069 ms
+2022-11-13 22:56:17.866  INFO 17680 --- [main] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Starting...
+2022-11-13 22:56:18.314  INFO 17680 --- [main] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Start completed.
+2022-11-13 22:56:18.533  INFO 17680 --- [main] liquibase.database                       : Set default schema name to public
+2022-11-13 22:56:18.843  INFO 17680 --- [main] liquibase.lockservice                    : Successfully acquired change log lock
+2022-11-13 22:56:19.278  INFO 17680 --- [main] liquibase.changelog                      : Reading from public.databasechangelog
+2022-11-13 22:56:19.384  INFO 17680 --- [main] liquibase.lockservice                    : Successfully released change log lock
+2022-11-13 22:56:19.483  INFO 17680 --- [main] o.hibernate.jpa.internal.util.LogHelper  : HHH000204: Processing PersistenceUnitInfo [name: default]
+2022-11-13 22:56:19.548  INFO 17680 --- [main] org.hibernate.Version                    : HHH000412: Hibernate ORM core version 5.6.12.Final
+2022-11-13 22:56:19.670  INFO 17680 --- [main] o.hibernate.annotations.common.Version   : HCANN000001: Hibernate Commons Annotations {5.1.2.Final}
+2022-11-13 22:56:19.783  INFO 17680 --- [main] org.hibernate.dialect.Dialect            : HHH000400: Using dialect: org.hibernate.dialect.PostgreSQL10Dialect
+2022-11-13 22:56:19.814  INFO 17680 --- [main] o.h.e.boot.internal.EnversServiceImpl    : Envers integration enabled? : true
+2022-11-13 22:56:21.132  INFO 17680 --- [main] o.h.e.t.j.p.i.JtaPlatformInitiator       : HHH000490: Using JtaPlatform implementation: [org.hibernate.engine.transaction.jta.platform.internal.NoJtaPlatform]
+2022-11-13 22:56:21.227  INFO 17680 --- [main] j.LocalContainerEntityManagerFactoryBean : Initialized JPA EntityManagerFactory for persistence unit 'default'
+2022-11-13 22:56:21.251  INFO 17680 --- [main] c.dmdev.spring.config.JpaConfiguration   : Jpa Configuration is enabled
+2022-11-13 22:56:22.176  INFO 17680 --- [main] c.d.spring.database.pool.ConnectionPool  : Init connection pool
+2022-11-13 22:56:22.213  INFO 17680 --- [main] c.d.spring.database.pool.ConnectionPool  : Init connection pool
+2022-11-13 22:56:22.214  INFO 17680 --- [main] c.d.spring.database.pool.ConnectionPool  : Init connection pool
+2022-11-13 22:56:23.692  INFO 17680 --- [main] o.s.s.web.DefaultSecurityFilterChain     : Will secure any request with [org.springframework.security.web.session.DisableEncodeUrlFilter@aba3735, org.springframework.security.web.context.request.async.WebAsyncManagerIntegrationFilter@16bba8ae, org.springframework.security.web.context.SecurityContextPersistenceFilter@3e272f0, org.springframework.security.web.header.HeaderWriterFilter@5a77e0e4, org.springframework.security.web.csrf.CsrfFilter@5be521cd, org.springframework.security.web.authentication.logout.LogoutFilter@731819a0, org.springframework.security.oauth2.client.web.OAuth2AuthorizationRequestRedirectFilter@37a2d18c, org.springframework.security.oauth2.client.web.OAuth2LoginAuthenticationFilter@5e3934db, org.springframework.security.web.authentication.UsernamePasswordAuthenticationFilter@3ad49704, org.springframework.security.web.savedrequest.RequestCacheAwareFilter@7aa06fac, org.springframework.security.web.servletapi.SecurityContextHolderAwareRequestFilter@51535304, org.springframework.security.web.authentication.AnonymousAuthenticationFilter@7c689379, org.springframework.security.web.session.SessionManagementFilter@55d607b, org.springframework.security.web.access.ExceptionTranslationFilter@255eadf5, org.springframework.security.web.access.intercept.AuthorizationFilter@30f929ff]
+2022-11-13 22:56:23.785  INFO 17680 --- [main] o.s.b.w.embedded.tomcat.TomcatWebServer  : Tomcat started on port(s): 8080 (http) with context path ''
+2022-11-13 22:56:23.796  INFO 17680 --- [main] com.dmdev.spring.ApplicationRunner       : Started ApplicationRunner in 9.607 seconds (JVM running for 10.367)
+2022-11-13 22:56:27.347  INFO 17680 --- [http-nio-8080-exec-1] o.a.c.c.C.[Tomcat].[localhost].[/]       : Initializing Spring DispatcherServlet 'dispatcherServlet'
+2022-11-13 22:56:27.347  INFO 17680 --- [http-nio-8080-exec-1] o.s.web.servlet.DispatcherServlet        : Initializing Servlet 'dispatcherServlet'
+2022-11-13 22:56:27.349  INFO 17680 --- [http-nio-8080-exec-1] o.s.web.servlet.DispatcherServlet        : Completed initialization in 2 ms
+2022-11-13 22:56:28.175  WARN 17680 --- [http-nio-8080-exec-1] o.a.c.util.SessionIdGeneratorBase        : Creation of SecureRandom instance for session ID generation using [SHA1PRNG] took [223] milliseconds.
+2022-11-13 22:56:37.832  INFO 17680 --- [http-nio-8080-exec-6] com.dmdev.spring.aop.FirstAspect         : AROUND before -  invoked findById method in class com.dmdev.spring.service.UserService@6d810e94, with id 4
+2022-11-13 22:56:37.832  INFO 17680 --- [http-nio-8080-exec-6] com.dmdev.spring.aop.FirstAspect         : before - invoked findById method in class com.dmdev.spring.service.UserService@6d810e94, with id 4
+2022-11-13 22:56:37.861  INFO 17680 --- [http-nio-8080-exec-6] com.dmdev.spring.aop.FirstAspect         : after returning - invoked findById method in class com.dmdev.spring.service.UserService@6d810e94, with result Optional[UserReadDto(id=4, username=vlad@gmail.com, birthDate=1984-03-14, firstname=Vlad, lastname=Vladikov, image=null, role=USER, company=CompanyReadDto[id=3, name=Amazon])]
+2022-11-13 22:56:37.867  INFO 17680 --- [http-nio-8080-exec-6] com.dmdev.spring.aop.FirstAspect         : after (finally) - invoked findById method in class com.dmdev.spring.service.UserService@6d810e94, with exception {}: {}
+2022-11-13 22:56:37.867  INFO 17680 --- [http-nio-8080-exec-6] com.dmdev.spring.aop.FirstAspect         : AROUND after returning - invoked findById method in class com.dmdev.spring.service.UserService@6d810e94, with result Optional[UserReadDto(id=4, username=vlad@gmail.com, birthDate=1984-03-14, firstname=Vlad, lastname=Vladikov, image=null, role=USER, company=CompanyReadDto[id=3, name=Amazon])]
+2022-11-13 22:56:37.867  INFO 17680 --- [http-nio-8080-exec-6] com.dmdev.spring.aop.FirstAspect         : AROUND after (finally) - invoked findById method in class com.dmdev.spring.service.UserService@6d810e94, with exception {}: {}
